@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Viswa Parnika Konda  | HR Professional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      scroll-behavior: smooth;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, #3b82f6, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .glass-card {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: linear-gradient(90deg, #3b82f6, #ec4899);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .hero-pattern {
+      background-image: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, rgba(15, 23, 42, 0) 50%);
+    }
+    
+    .skill-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #3b82f6, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, #3b82f6, #ec4899);
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 12px;
+      width: 2px;
+      height: calc(100% - 12px);
+      background: linear-gradient(to bottom, #3b82f6, #ec4899);
+    }
+    
+    .timeline-item:last-child::after {
+      display: none;
+    }
+    
+    .contact-input {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    }
+    
+    .btn-gradient {
+      background: linear-gradient(90deg, #3b82f6, #ec4899);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+    }
+    
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: linear-gradient(90deg, #3b82f6, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+    
+    .scroll-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <span class="text-2xl font-bold gradient-text">Parnika</span>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="#home" class="nav-link text-slate-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a href="#about" class="nav-link text-slate-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+            <a href="#skills" class="nav-link text-slate-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+            <a href="#experience" class="nav-link text-slate-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+            <a href="#contact" class="nav-link text-slate-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none">
+            <span class="sr-only">Open main menu</span>
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-white hover:bg-slate-700">Home</a>
+        <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-white hover:bg-slate-700">About</a>
+        <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-white hover:bg-slate-700">Skills</a>
+        <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-white hover:bg-slate-700">Experience</a>
+        <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-white hover:bg-slate-700">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-pattern pt-24 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4">
+          <span class="gradient-text hovered-element"> Viswa Parnika Konda </span>
+          </h1>
+          <h2 class="text-xl md:text-2xl text-slate-300 mb-6">BBA Student | Aspiring HR and Marketing Professional</h2>
+          <p class="text-slate-300 mb-8 max-w-lg">
+           Aspiring HR and Marketing professional with a BBA background and strong interpersonal, analytical, and communication skills.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#contact" class="btn-gradient text-white px-6 py-3 rounded-full font-medium">Get In Touch</a>
+            <a href="#about" class="border border-slate-600 text-slate-300 hover:bg-slate-800/50 px-6 py-3 rounded-full font-medium transition-all duration-300">Learn More</a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <div class="relative">
+            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-slate-700/50">
+              <img src="https://i.ibb.co/QFZNm5Yg/upscalemedia-transformed.jpg
+              " alt="Profile" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">About Me</h2>
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+          <div class="glass-card p-8 rounded-xl">
+            <h3 class="text-2xl font-bold mb-4 text-slate-100">About</h3>
+            <p class="text-slate-300 mb-6">
+              I am a Bachelor of Business Administration (BBA) student with Motivated and detail-oriented with a strong academic background and hands-on internship experience in customer relations and operations. Known for excellent communication. time management, and problem-solving abilities, with a keen interest in applying business concepts to real-world challenges to drive organizational success.
+            </p>
+            <p class="text-slate-300 mb-6">
+              What sets me apart is my blend of analytical thinking and emotional intelligence — key to effective HR management. I’m also passionate about marketing, where I enjoy crafting strategies that connect with audiences and drive results through creativity and data-driven insights.
+             
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <div class="bg-slate-800/50 px-4 py-2 rounded-full">
+                <span class="text-slate-300 text-sm">Strategic Thinking</span>
+              </div>
+              <div class="bg-slate-800/50 px-4 py-2 rounded-full">
+                <span class="text-slate-300 text-sm">Team Collaboration</span>
+              </div>
+              <div class="bg-slate-800/50 px-4 py-2 rounded-full">
+                <span class="text-slate-300 text-sm">Continuous Learner</span>
+              </div>
+                <div class="bg-slate-800/50 px-4 py-2 rounded-full">
+                <span class="text-slate-300 text-sm">Marketing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <div class="glass-card p-8 rounded-xl">
+            <h3 class="text-2xl font-bold mb-6 text-slate-100">Education</h3>
+            <div class="space-y-8 relative">
+              <!-- Timeline item -->
+              <div class="timeline-item pl-8 relative">
+                <div class="flex items-start">
+                  <div class="bg-slate-800/50 p-3 rounded-lg mr-4">
+                    <i class="fas fa-graduation-cap text-blue-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-slate-100">Bachelor of Business Administration (BBA)</h4>
+                    <p class="text-slate-400 text-sm mb-2">Vellore Institue of Technology (VIT) • 2022 - 2025</p>
+                    <p class="text-slate-300 text-sm">
+                      Specializing in Human Resource Management with coursework in organizational behavior, business communication, and strategic management.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Timeline item -->
+              <div class="timeline-item pl-8 relative">
+                <div class="flex items-start">
+                  <div class="bg-slate-800/50 p-3 rounded-lg mr-4">
+                    <i class="fas fa-school text-pink-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-slate-100">Sri Chaitanya junior College</h4>
+                    <p class="text-slate-400 text-sm mb-2">School Name • 2020 - 2022</p>
+                    <p class="text-slate-300 text-sm">
+                      Completed Intermediate with distinction in MPC stream, developing strong analytical and problem-solving skills through core subjects in Mathematics, Physics, and Chemistry
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">My Skills</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Skill Card 1 -->
+        <div class="glass-card p-6 rounded-xl">
+          <div class="skill-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-slate-100">Communication</h3>
+          <p class="text-slate-300 text-sm">
+            Excellent verbal and written communication skills with the ability to articulate ideas clearly and persuasively in both formal and informal settings.
+          </p>
+        </div>
+        
+        <!-- Skill Card 2 -->
+        <div class="glass-card p-6 rounded-xl">
+          <div class="skill-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-slate-100">Problem Solving</h3>
+          <p class="text-slate-300 text-sm">
+            Analytical approach to challenges with the ability to identify root causes and develop practical, innovative solutions.
+          </p>
+        </div>
+        
+        <!-- Skill Card 3 -->
+        <div class="glass-card p-6 rounded-xl">
+          <div class="skill-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-slate-100">Time Management</h3>
+          <p class="text-slate-300 text-sm">
+            Efficiently manages multiple tasks and priorities under tight deadlines while maintaining high quality standards.
+          </p>
+        </div>
+        
+        <!-- Skill Card 4 -->
+        <div class="glass-card p-6 rounded-xl">
+          <div class="skill-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-slate-100">Team Leadership</h3>
+          <p class="text-slate-300 text-sm">
+            Leads and coordinates group initiatives effectively, fostering collaboration and motivating team members to achieve common goals.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Additional Skills -->
+      <div class="mt-12 glass-card p-8 rounded-xl">
+        <h3 class="text-2xl font-bold mb-6 text-center text-slate-100">Technical & Professional Skills</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-2 flex items-center justify-center bg-slate-800/50 rounded-full">
+              <i class="fas fa-file-excel text-blue-400 text-2xl"></i>
+            </div>
+            <span class="text-slate-300 text-sm">MS Excel</span>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-2 flex items-center justify-center bg-slate-800/50 rounded-full">
+              <i class="fas fa-file-powerpoint text-orange-400 text-2xl"></i>
+            </div>
+            <span class="text-slate-300 text-sm">MS PowerPoint</span>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-2 flex items-center justify-center bg-slate-800/50 rounded-full">
+              <i class="fas fa-file-word text-blue-600 text-2xl"></i>
+            </div>
+            <span class="text-slate-300 text-sm">MS Word</span>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-2 flex items-center justify-center bg-slate-800/50 rounded-full">
+              <i class="fas fa-chart-line text-green-400 text-2xl"></i>
+            </div>
+            <span class="text-slate-300 text-sm">Data Analysis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">Professional Experience</h2>
+      
+      <div class="glass-card p-8 rounded-xl mb-8">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+          <div>
+            <h3 class="text-2xl font-bold text-slate-100">HR Intern</h3>
+            <p class="text-blue-400 font-medium">ZOLO STAYS, Bangalore - March - May 2024 | Stipend: 15,000</p>
+          </div>
+          <div class="mt-2 md:mt-0">
+            <span class="bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-sm">Jan 2025 – Apr 2025</span>
+          </div>
+        </div>
+        
+        <div class="space-y-4">
+          <div class="flex">
+            <div class="flex-shrink-0 mr-4 mt-1">
+              <div class="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-pink-500"></div>
+            </div>
+            <div>
+              <p class="text-slate-300">
+                Conducted comprehensive analysis of employee feedback surveys, identifying key areas for improvement in workplace satisfaction.
+              </p>
+            </div>
+        
+          
+          <div class="flex">
+            <div class="flex-shrink-0 mr-4 mt-1">
+            </div>
+            
+              
+               
+              
+            </div>
+          </div>
+          
+          <div class="flex">
+            <div class="flex-shrink-0 mr-4 mt-1">
+              <div class="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-pink-500"></div>
+            </div>
+            <div>
+              <p class="text-slate-300">
+                Handled end-to-end client interactions, resolved inquiries efficiently, and directly supported revenue enhancement through clear communication and timely responses.
+              </p>
+            </div>
+          </div>
+          
+          <div class="flex">
+            <div class="flex-shrink-0 mr-4 mt-1">
+              <div class="w-5 h-5 rounded-full bg-gradient-to-r from-blue-500 to-pink-500"></div>
+            </div>
+            <div>
+              <p class="text-slate-300">
+                Participated in recruitment processes, screening resumes and conducting initial candidate interviews.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="glass-card p-8 rounded-xl">
+        <h3 class="text-2xl font-bold mb-6 text-slate-100">Leadership & Extracurricular Activities</h3>
+        
+        <div class="space-y-6">
+          <!-- Activity 1 -->
+          <div class="flex">
+            <div class="flex-shrink-0 mr-4">
+              <div class="w-12 h-12 rounded-lg bg-slate-800/50 flex items-center justify-center">
+                <i class="fas fa-users-cog text-blue-400"></i>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-100">Student Council Member</h4>
+              <p class="text-slate-400 text-sm mb-2">University • 2023 - 2024</p>
+              <p class="text-slate-300 text-sm">
+                Represented student body concerns, organized campus events, and served as liaison between students and administration.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Activity 2 -->
+          <div class="flex">
+            <div class="flex-shrink-0 mr-4">
+              <div class="w-12 h-12 rounded-lg bg-slate-800/50 flex items-center justify-center">
+                <i class="fas fa-hands-helping text-pink-400"></i>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-100">Volunteer Coordinator</h4>
+              <p class="text-slate-400 text-sm mb-2">Community Organization • 2022 - Present</p>
+              <p class="text-slate-300 text-sm">
+                Managed volunteer teams for local community service projects, increasing participation by 40% through improved engagement strategies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">Get In Touch</h2>
+      
+      <div class="flex justify-center">
+        <div class="w-full max-w-2xl">
+          <div class="glass-card p-8 rounded-xl h-full">
+            <h3 class="text-2xl font-bold mb-6 text-slate-100">Contact Information</h3>
+            
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mr-4 mt-1">
+                  <i class="fas fa-envelope text-blue-400"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-slate-300">Email</h4>
+                  <a href="mailto:parnikakonda07@gmail.com" class="text-blue-400 hover:underline">viswaparnikak@gmail.com</a>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mr-4 mt-1">
+                  <i class="fas fa-phone-alt text-pink-400"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-slate-300">Phone</h4>
+                  <a href="tel:+919059008853" class="text-blue-400 hover:underline">+91 8500069678</a>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mr-4 mt-1">
+                  <i class="fas fa-map-marker-alt text-purple-400"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium text-slate-300">Location</h4>
+                  <p class="text-slate-300">Andra Pradesh, Madanapalle ,India</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-12">
+              <h4 class="font-medium text-slate-300 mb-4">Connect with me</h4>
+              <div class="flex space-x-4">
+                <a href="https://www.linkedin.com/in/parnikareddy/" class="w-10 h-10 rounded-full bg-slate-800/50 flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
+                  <i class="fab fa-linkedin-in text-slate-300"></i>
+                </a>
+                <a href="https://x.com/parnika_reddy04?s=21&t=AAn8POPDEt2OhyxHescycA" class="w-10 h-10 rounded-full bg-slate-800/50 flex items-center justify-center hover:bg-blue-400 transition-colors duration-300">
+                  <i class="fab fa-twitter text-slate-300"></i>
+                </a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Download Section -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-900 to-blue-900/30">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">Want to Know More?</h2>
+      <p class="text-slate-300 mb-8 max-w-2xl mx-auto">
+        Download my complete resume to learn more about my qualifications, experience, and achievements.
+      </p>
+      <a href="K.Parnika_resume.docx" download="Parnika_Konda_Resume.pdf" class="btn-gradient text-white px-8 py-4 rounded-full font-medium inline-flex items-center hovered-element">
+        <i class="fas fa-download mr-2"></i> Download Resume
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-slate-900">
+    <div class="max-w-7xl mx-auto text-center text-slate-400">
+      <p>© 2024 Viswa Parnika Konda. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking on a link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
